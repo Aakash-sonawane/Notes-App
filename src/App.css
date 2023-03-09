@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* .container-fluid a button{
+  color: white;
+  /* background-color: red; */
+  
+/* }  */
+
+.sec1{
+  background-color: #61dafb;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+}
+.sec1Inner{
+  /* background-color:rgb(121, 23, 23); */
+  margin: 0px 200px;
+}
+.sec1Inner p{
+  font-size: 16px;
+}
+/* .textArea textarea{
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.item{
+  font-size: 22px;
+  color:black;
+  margin: 0;
+  
+}
+.board{
+  /* background-color: red; */
+  width: 70%;
+  height: 95vh;
+  padding: 20px;
+
+}
+.sideBar{
+  width: 30%;
+  height: 95vh;
+  background-color: #2354;
+}
+.display{
+  display: flex;
+  
+}
+
+
+/* AddNote */
+.container{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.addNote textarea{
+  width: 50vw;
+  height: 20vh;
+}
+.addNote button{
+  width: 70%;
+  padding: 5px;
+
+}
+.modal-content {
+  /* width: 1200px;  */
+  margin-top: 200px;
+  height: 300px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  }
+/* .modal-dialog {
+  margin-left: 285px !important  
+  }
+ @media screen and (max-width: 1000px) {
+.modal-dialog {
+   margin-left: 100px !important
+ }
+} */
