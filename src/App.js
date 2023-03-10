@@ -1,9 +1,10 @@
 // import logo from './logo.svg';
 import PropTypes from 'prop-types'
-import { useState } from 'react';
-import { Modal } from 'reactstrap';
+import { useEffect, useState } from 'react';
 
+import SideBar from "./Components/SideBar/SideBar"
 import './App.css';
+import Section from "./Components/Section/Section"
 
 
 
@@ -51,115 +52,35 @@ const Nav = (props) => {
   )
 }
 
-const SideBar=()=>{
-  return(
-    <div className='sideBar'>
-      <ul>
-        <li className='item'>list</li>
-        <li className='item'>list</li>
-        <li className='item'>list</li>
-        <li className='item'>list</li>
-        <li className='item'>list</li>
-      </ul>
 
-    </div>
-  )
-}
-
-
-const Section=(props)=>{
-
-  const toggle=()=>{
-    props.setIsAddNoTeFlag(!props.isAddNoteFlag)
-  }
-
-  return(
-    <div className='board'>
-      <button onClick={toggle}>+</button>
-      <Modal
-      size='lg'
-      isOpen={props.isAddNoteFlag}
-      toggle={toggle}
-      >
-        <div style={{
-          // width:"400px",
-          height:"400px",
-          // backgroundColor:"yellow",
-          // display:"flex",
-          // justifyContent:"center",
-          // alignItems:"center",
-          // flexDirection:'column'
-          
-        }}>
-        <button onClick={toggle} style={{
-          position: "relative",
-          float: "right",
-          background: "red",
-        color: "white",
-          top: -"10px",
-          right: -"10px"
-          
-        }}>X</button>
-        <div style={{
-          marginTop:"40px"
-        }}>
-      <AddNote list={props.list} setList={props.setList} note={props.note} setNote={props.setNote} setIsAddNoTeFlag={props.setIsAddNoTeFlag} isAddNoteFlag={props.isAddNoteFlag}/>
-      </div>
-      </div>
-
-      </Modal>
-      <ListRender list={props.list}/>
-    </div>
-  )
-}
-
-const AddNote=(props)=>{
-  return(
-    <div className='container addNote'>
-      <textarea value={props.note} 
-      onChange={(e)=>{
-        props.setNote(e.target.value);
-      }}></textarea>
-      <button className='btn btn-secondary' onClick={()=>{
-        // props.setIsAddNoTeFlag(false);
-        if(props.note!==""){props.setList([...props.list,props.note])}
-        console.log(props.list)
-        props.setNote("")
-      }}>ADD</button>
-    </div>
-  )
-}
-
-const ListRender=(props)=>{
-  return(
-    props.list.map((el)=>{
-      return(
-
-      <div className='notebox'>
-        <p>{new Date().toDateString()}</p>
-        <p>{el}</p>
-        <button>remove</button>
-      </div>
-      )
-    })
-  )
-
-}
 
 
 function App() {
+  
   const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
   const[note,setNote]=useState("");
-  const[list,setList]=useState([])
+  const[list,setList]=useState(JSON.parse(localStorage.getItem("list") || '[]'));
+  // const[listArray, setListArray]
+  const[showPage,setShowPage]=useState("");
+  // cont localStorage.getItem
+  // const jsonList=JSON.stringify(list)
+  // localStorage.setItem("list",jsonList);
+  useEffect(()=>{
+    // const state = ;
+      // if(list!=="")
+     localStorage.setItem("list", JSON.stringify(list));
+     console.log(list);
+  },[list]);
+  
   return (
-    <>
+    <main>
       <Nav title={"mySite"} />
       <div className='display'>
-        <SideBar/>
-        <Section list={list} setList={setList} note={note} setNote={setNote} isAddNoteFlag={isAddNoteFlag} setIsAddNoTeFlag={setIsAddNoTeFlag}/>
+        <SideBar showPage={showPage} setShowPage={setShowPage}/>
+        <Section showPage={showPage} list={list} setList={setList} note={note} setNote={setNote} isAddNoteFlag={isAddNoteFlag} setIsAddNoTeFlag={setIsAddNoTeFlag}/>
 
       </div>
-    </>
+    </main>
   );
 }
 
