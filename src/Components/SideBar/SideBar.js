@@ -5,10 +5,11 @@ const SideBar=(props)=>{
           console.log(event.target.id)
           props.setShowPage(event.target.id);
         }}>
+
           <div className='item' id="add">Add Note</div>
-          <div className='item' id="history">History</div>
+          <div className='item' id="history">History <span style={{color:"brown"}}>{props.list.length!==0?`(${props.list.length})`:null}</span></div>
           <div className='item' id="fav">Favourite</div>
-          <div className='item' id="bin">Trash Bin</div>
+          <div className='item' id="bin">Trash Bin ({props.deletedItems.length})</div>
           {/* <div className='item'>list</div> */}
         </div>
   

@@ -13,8 +13,10 @@ const AddNote=(props)=>{
 
           if(props.note!==""){
             // localStorage.setItem("list", JSON.stringify(props.list));
-            props.setList([props.note,...props.list])}
-          console.log(props.list)
+         
+            props.setList([ {date:new Date().toDateString(),
+              item:props.note, fav:false}, ...props.list])}
+          // console.log(obj.date);
           props.setNote("")
         }}>ADD</button>
       </div>

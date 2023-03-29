@@ -1,6 +1,7 @@
 import { Modal } from 'reactstrap';
 import AddNote from '../AddNote';
 import ListRender from '../ListRender';
+import ItemsRender from "../itemRendering"
 const Section=(props)=>{
 
     const toggle=()=>{
@@ -12,7 +13,8 @@ const Section=(props)=>{
 
         {props.showPage==="add"?
         <div>
-        <button onClick={toggle}>+</button>
+        {/* <button onClick={toggle}>+</button> */}
+        <div className='add-btn-plus' onClick={toggle}><i class="fa-solid fa-2x fa-plus"></i></div>
         <Modal
         size='lg'
         isOpen={props.isAddNoteFlag}
@@ -39,7 +41,11 @@ const Section=(props)=>{
         </Modal>
         
         </div>
-        :props.showPage==="history"?<ListRender list={props.list} setList={props.setList}/>:null}
+        :props.showPage==="history"?<div className='list-container'><ListRender setFavItems={props.setFavItems} favItems={props.favItems} deletedItems={props.deletedItems} setDeletedItems={props.setDeletedItems} list={props.list} setList={props.setList}/></div>
+        :
+         props.showPage==="bin"?<div className='list-container'><ItemsRender deletedItems={props.deletedItems} setDeletedItems={props.setDeletedItems}/></div>
+         :
+         props.showPage==="fav"?<div className='list-container'><ItemsRender deletedItems={props.favItems} setDeletedItems={props.setFavItems}/></div>:null}
       </div>
     )
   }

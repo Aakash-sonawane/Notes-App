@@ -60,24 +60,22 @@ function App() {
   const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
   const[note,setNote]=useState("");
   const[list,setList]=useState(JSON.parse(localStorage.getItem("list") || '[]'));
-  // const[listArray, setListArray]
   const[showPage,setShowPage]=useState("");
-  // cont localStorage.getItem
-  // const jsonList=JSON.stringify(list)
-  // localStorage.setItem("list",jsonList);
+  const[deletedItems, setDeletedItems]=useState(JSON.parse(localStorage.getItem("deletedItems") || '[]'));
+  const[favItems, setFavItems]=useState(JSON.parse(localStorage.getItem("favItems") || '[]'));
   useEffect(()=>{
-    // const state = ;
-      // if(list!=="")
      localStorage.setItem("list", JSON.stringify(list));
-     console.log(list);
-  },[list]);
+     localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
+     localStorage.setItem("favItems", JSON.stringify(favItems));
+    //  console.log(deletedItems);
+  },[list, deletedItems, favItems]);
   
   return (
     <main>
-      <Nav title={"mySite"} />
+      <Nav title={"Ak-Daily-Notes"} />
       <div className='display'>
-        <SideBar showPage={showPage} setShowPage={setShowPage}/>
-        <Section showPage={showPage} list={list} setList={setList} note={note} setNote={setNote} isAddNoteFlag={isAddNoteFlag} setIsAddNoTeFlag={setIsAddNoTeFlag}/>
+        <SideBar list={list} deletedItems={deletedItems}  showPage={showPage} setShowPage={setShowPage}/>
+        <Section favItems={favItems} setFavItems={setFavItems} deletedItems={deletedItems} setDeletedItems={setDeletedItems} showPage={showPage} list={list} setList={setList} note={note} setNote={setNote} isAddNoteFlag={isAddNoteFlag} setIsAddNoTeFlag={setIsAddNoTeFlag}/>
 
       </div>
     </main>
