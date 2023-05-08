@@ -13,15 +13,15 @@ gap: 20px;
 .item{
   width: 80%;
   font-size: 20px;
-  color:black;
+  color:#f9f5f5;
   margin: 0;
   /* border: 1px solid; */
   border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px rgb(0, 0, 0);
+  box-shadow: 0px 0px 4px 0px rgb(157, 153, 153);
 }
 .item:hover{
-  background-color: #408d06;
-  color: white;
+  background-color: #fff;
+  color: #333;
 }
 
 .navbar{
@@ -34,28 +34,32 @@ gap: 20px;
 
 .board{
   /* background-color: red; */
-  margin-left: 15%;
-  width: 85%;
-  height: 95vh;
-  padding: 20px;
-  margin-top: 50px;
-  /* background-color: blue; */
+  /* margin-top: 10%; */
+ margin-left: 15%;
+  width: 95%;
+  height: 85vh;
+  /* padding: 10px; */
+  margin-top: 62px;
+  /* background-color: rgb(223, 223, 230); */
 }
 .sideBar{
-  height: 100%;
+  height: 85%;
   width: 15%;
   position: fixed;
   z-index: 1;
-  top: 60px;
-  left: 0;
-  background-color: #aaec78;
+  top: 80px;
+  left: 162px;
+  background-color: #151c42;
   overflow-x: hidden;
   padding-top: 20px;
+  border-radius: 10px;
+  /* color: white; */
 }
 
 
 .display{
   display: flex;
+  margin: 17px 240px;
   
 }
 
@@ -110,8 +114,9 @@ text-align: center;
   height: 100vh;
   display: grid;
   padding-left: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: 150px 150px 150px 150px 150px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 150px 150px 150px 150px; */
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 20px;
@@ -125,7 +130,7 @@ text-align: center;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 5px;
+  padding: 17px;
   /* border: 2px solid; */
   width:200px;
   height: 150px;

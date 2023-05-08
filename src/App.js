@@ -17,7 +17,7 @@ import Header from './Components/header/Header';
 function App() {
   
   const[list,setList]=useState(JSON.parse(localStorage.getItem("list") || '[]'));
-  const[showPage,setShowPage]=useState("");
+  const[showPage,setShowPage]=useState("history");
   const[deletedItems, setDeletedItems]=useState(JSON.parse(localStorage.getItem("deletedItems") || '[]'));
   // const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
   // const[note,setNote]=useState("");

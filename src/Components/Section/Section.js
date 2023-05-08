@@ -9,15 +9,20 @@ const Section=(props)=>{
     const {showPage, list, setList,deletedItems}=props
 
     const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
+    const [isEdit, setIsEdit]=useState();
     
     const[favItems, setFavItems]=useState(JSON.parse(localStorage.getItem("favItems") || '[]'));
 
     const toggle=()=>{
       setIsAddNoTeFlag(!isAddNoteFlag)
     }
-  
+    const toggleisEdit=()=>{
+      setIsEdit(!isEdit)
+    }
+    // toggleisEdit()
     return(
       <div className='board'>
+       {props.showPage==="empty" && <h1>wefwfweffwffwfw</h1>}
 
         {props.showPage==="add"?
         <div>
