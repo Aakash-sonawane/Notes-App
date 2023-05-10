@@ -17,7 +17,7 @@ function FavRendering(props) {
           el.fav && <div key={index.toString()} className='notebox'>
             {/* <div > */}
             <p>{el.date}</p>
-            <div style={{overflow:"hidden",height:"20px"}}>{el.item}</div>
+            <div style={{overflow:"hidden",height:"20px"}}>{el.itemTitle}</div>
             {/* </div> */}
             {/* <button >fav</button> */}
             {/* <div><i id={props.list.length-index-1} class={el.fav===true?"fa-regular fa-star fav":"fa-solid fa-star fav"}></i></div> */}

@@ -7,7 +7,7 @@ const SideBar=(props)=>{
         }}>
 
           <div className='item' id="add">Add Note</div>
-          <div className='item' id="history">History <span style={{color:"brown"}}>{props.list.length!==0?`(${props.list.length})`:null}</span></div>
+          <div className='item' id="history">Notes ({props.list.length})</div>
           <div className='item' id="fav">Favourite</div>
           <div className='item' id="bin">Trash Bin ({props.deletedItems.length})</div>
           {/* <div className='item'>list</div> */}
