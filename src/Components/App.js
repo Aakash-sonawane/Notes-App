@@ -20,9 +20,13 @@ function App() {
   return (
     <main>
       <Header title={"Ak-Daily-Notes"} />
-      <div className='display'>
+      <div className='wrapper'>
+        <div class="container">
+        <div class="inner-wrap">
         <SideBar list={list} deletedItems={deletedItems}  showPage={showPage} setShowPage={setShowPage}/>
         <Section deletedItems={deletedItems} setDeletedItems={setDeletedItems} showPage={showPage} list={list} setList={setList}/>
+        </div>
+        </div>
       </div>
     </main>
   );

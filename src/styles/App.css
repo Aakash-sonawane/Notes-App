@@ -46,24 +46,25 @@ gap: 20px;
   /* background-color: rgb(223, 223, 230); */
 }
 .sideBar{
-  height: 85%;
-  width: 15%;
+  max-width: 15%;
   position: fixed;
   z-index: 1;
   top: 80px;
-  left: 162px;
+  left: 20px;
   background-color: #151c42;
-  overflow-x: hidden;
+
   padding-top: 20px;
   border-radius: 10px;
   /* color: white; */
 }
 
 
-.display{
-  display: flex;
-  margin: 17px 240px;
+.wrapper{
   
+}
+.wrapper .container{max-width: 980px; margin: 0 auto; padding: 0 20px;}
+.inner-wrap{
+  display: flex;
 }
 
 
@@ -78,14 +79,14 @@ border-radius: 30px;
 text-align: center;
 margin-left: 20px;
 }
-.container{
+/* .container{
   width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 28px;
-}
+} */
 
 .addNote input{
   border: 1px solid rgb(177, 175, 175);
@@ -141,9 +142,9 @@ margin-left: 20px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 17px;
+  padding: 30px 10px;
   /* border: 2px solid; */
-  width:200px;
+  max-width:200px;
   height: 150px;
   border-radius: 3px;
   box-shadow: 1px 1px 8px 0px rgb(0, 0, 0);

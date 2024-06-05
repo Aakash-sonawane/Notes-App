@@ -2,7 +2,7 @@ const SideBar=(props)=>{
     return(
       <div className='sideBar'>
         <div className="sidebar-items" onClick={(event)=>{
-          console.log(event.target.id)
+          // console.log(event.target.id)
           props.setShowPage(event.target.id);
         }}>
 
