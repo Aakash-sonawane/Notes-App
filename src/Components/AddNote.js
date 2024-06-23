@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const AddNote=({list,setList,toggle,isAddNoteFlag,isEdit,editId})=>{
   const[note,setNote]=useState("");
   const[noteTitle,setNoteTitle]=useState("");
+
     useEffect(()=>{
       if(isEdit){
         setNoteTitle(list[editId].itemTitle);
@@ -12,10 +13,10 @@ const AddNote=({list,setList,toggle,isAddNoteFlag,isEdit,editId})=>{
         setNoteTitle("");
         setNote("");
       }
-    },[isEdit])
+    },[isEdit,list,editId ])
 
     function addNewNote(){
-      if(note!=="" && noteTitle!=""){
+      if(note!=="" && noteTitle!==""){
         const listItem={
           id:list.length+1, 
           date:new Date().toDateString(),

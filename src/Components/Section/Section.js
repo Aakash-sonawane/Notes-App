@@ -1,5 +1,3 @@
-import { Modal } from 'reactstrap';
-import AddNote from '../AddNote';
 import Popup from '../Popup'
 import { useState } from 'react';
 import MainList from '../renderLists/MainList';
@@ -28,13 +26,12 @@ const Section=(props)=>{
       <div className='board'>
         <div >
 
-        {showPage=='add' && <div className='add-btn-plus' 
-        onClick={toggle}><i 
-        className="fa-solid fa-2x fa-plus"></i></div>}
+        {showPage==='add' && <div className='add-btn-plus' 
+        onClick={toggle}><i className="fa-solid fa-2x fa-plus"></i></div>}
 
        {list.length===0 && !isAddNoteFlag?<About/>:null}
         
-        {showPage=='add' &&
+        {showPage==='add' &&
           (isAddNoteFlag || isEdit) && <Popup 
           toggle={isAddNoteFlag?toggle:toggleisEdit} 
           list={list} 
