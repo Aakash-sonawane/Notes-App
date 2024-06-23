@@ -1,67 +1,63 @@
 import { Modal } from 'reactstrap';
 import AddNote from '../AddNote';
-import ListRender from '../renderLists/ListRender';
-import ItemsRender from "../renderLists/itemRendering"
+import Popup from '../Popup'
 import { useState } from 'react';
-import FavRendering from '../renderLists/favRendering';
+import MainList from '../renderLists/MainList';
 import About from './about';
-// import image from "../../plus.png"
 const Section=(props)=>{
 
     const {showPage, list, setList,deletedItems,setDeletedItems}=props
 
     const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
-    // const [isEdit, setIsEdit]=useState();
-    
-    // const[favItems, setFavItems]=useState(JSON.parse(localStorage.getItem("favItems") || '[]'));
-
+    const [isEdit, setIsEdit]=useState(false);
+    const [editId, seteditId] = useState("");
+   
     const toggle=()=>{
       setIsAddNoTeFlag(!isAddNoteFlag)
     }
-    // const toggleisEdit=()=>{
-    //   setIsEdit(!isEdit)
-    // }
-    // toggleisEdit()
+
+    const toggleisEdit = () => {
+      setIsEdit(!isEdit)
+    }
+
+    const handleIsedit = (event) => {
+      seteditId(list.length - event.target.id - 1)
+    }
+
     return(
       <div className='board'>
-        {props.showPage==="add"?
-        <div>
-        {/* <button onClick={toggle}>+</button> */}
-        <div className='add-btn-plus' onClick={toggle}><i class="fa-solid fa-2x fa-plus"></i></div>
-       {list.length===0?<About/>:null}
-        
+        <div >
 
-        <Modal
-        size='lg'
-        isOpen={isAddNoteFlag}
-        toggle={toggle}
-        >
-          <div style={{
-            // width:"400px",
-            height:"400px",
-            // backgroundColor:"yellow",
-            // display:"flex",
-            // justifyContent:"center",
-            // alignItems:"center",
-            // flexDirection:'column'
-            
-          }}>
-          <button className='x-btn' onClick={toggle} style={{}}>X</button>
-          <div style={{
-            marginTop:"40px"
-          }}>
-        <AddNote toggle={toggle} list={list} setList={setList} isAddNoteFlag={isAddNoteFlag}/>
-        </div>
-        </div>
-  
-        </Modal>
+        {showPage=='add' && <div className='add-btn-plus' 
+        onClick={toggle}><i 
+        className="fa-solid fa-2x fa-plus"></i></div>}
+
+       {list.length===0 && !isAddNoteFlag?<About/>:null}
         
+        {showPage=='add' &&
+          (isAddNoteFlag || isEdit) && <Popup 
+          toggle={isAddNoteFlag?toggle:toggleisEdit} 
+          list={list} 
+          setList={setList} 
+          isAddNoteFlag={isAddNoteFlag}
+          isEdit={isEdit}
+          editId={editId}
+          />
+        }
         </div>
-        :showPage==="history"?<div className='list-container'><ListRender setIsAddNoTeFlag={setIsAddNoTeFlag}  deletedItems={deletedItems} setDeletedItems={setDeletedItems} list={list} setList={setList}/></div>
-        :
-         showPage==="bin"?<div className='list-container'><ItemsRender deletedItems={deletedItems} setDeletedItems={setDeletedItems}/></div>
-         :
-         showPage==="fav"?<div className='list-container'><FavRendering list={list} setList={setList}/></div>:null}
+
+        <div className='list-container'>
+          
+          <MainList showPage={showPage} 
+          setIsAddNoTeFlag={setIsAddNoTeFlag}  
+          deletedItems={deletedItems} 
+          setDeletedItems={setDeletedItems} 
+          list={list} setList={setList} 
+          toggleisEdit={toggleisEdit}
+          handleIsedit={handleIsedit}
+          />
+
+        </div>
       </div>
     )
   }

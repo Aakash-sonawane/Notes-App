@@ -9,7 +9,7 @@ import Header from './header/Header';
 function App() {
   
   const[list,setList]=useState(JSON.parse(localStorage.getItem("list") || '[]'));
-  const[showPage,setShowPage]=useState("history");
+  const[showPage,setShowPage]=useState("add");
   const[deletedItems, setDeletedItems]=useState(JSON.parse(localStorage.getItem("deletedItems") || '[]'));
 
   useEffect(()=>{
@@ -19,12 +19,15 @@ function App() {
   
   return (
     <main>
-      <Header title={"Ak-Daily-Notes"} />
+      
       <div className='wrapper'>
-        <div class="container">
-        <div class="inner-wrap">
+      <Header title={"Ak-Daily-Notes"} />
+      <div className="content-wrap">
+        <div className="container">
+        <div className="inner-wrap">
         <SideBar list={list} deletedItems={deletedItems}  showPage={showPage} setShowPage={setShowPage}/>
         <Section deletedItems={deletedItems} setDeletedItems={setDeletedItems} showPage={showPage} list={list} setList={setList}/>
+        </div>
         </div>
         </div>
       </div>
