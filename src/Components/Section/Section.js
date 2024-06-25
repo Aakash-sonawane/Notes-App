@@ -4,7 +4,7 @@ import MainList from '../renderLists/MainList';
 import About from './about';
 const Section=(props)=>{
 
-    const {showPage, list, setList,deletedItems,setDeletedItems}=props
+    const {showPage, list, setList,deletedItems,setDeletedItems,searchItems}=props
 
     const [isAddNoteFlag, setIsAddNoTeFlag]=useState(false);
     const [isEdit, setIsEdit]=useState(false);
@@ -52,6 +52,7 @@ const Section=(props)=>{
           list={list} setList={setList} 
           toggleisEdit={toggleisEdit}
           handleIsedit={handleIsedit}
+          searchItems={searchItems}
           />
 
         </div>

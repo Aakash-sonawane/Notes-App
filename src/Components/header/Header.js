@@ -1,11 +1,41 @@
-const Header = (props) => {
+import {useState,useEffect} from 'react'
+
+const Header = ({title,list,searchItems,setSearchItems,showPage,setShowPage}) => {
+
+  const [searchText,setSearchText]=useState('');
+
+  useEffect(()=>{
+let filterSearchItems=[];
+    if(searchText){
+      console.log(searchText)
+        filterSearchItems=list.filter((item)=>{
+        let title=item.itemTitle.toLowerCase();
+        let desc=item.item.toLowerCase();
+        console.log(title.indexOf(searchText))
+        console.log(desc.indexOf(searchText))
+        return !title.indexOf(searchText) || !desc.indexOf(searchText)
+      })
+      setShowPage('search')
+      setSearchItems([...filterSearchItems])
+
+    }
+    else{
+      setShowPage('add')
+    }
+
+    console.log('filterSearchItems',filterSearchItems)
+
+
+  },[searchText])
+
+
     return (
       <>
         <nav className="navbar nav1 navbar-expand-lg bg-body-tertiary">
           <div className="container">
 
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">{props.title}</a>
+            <a className="navbar-brand" href="/">{title}</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -22,8 +52,11 @@ const Header = (props) => {
                 </li>
               </ul>
               <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+
+                <input className="form-control me-2" type="search" placeholder="Search"
+                 aria-label="Search" 
+                 onChange={(e)=>{setSearchText(e.target.value)}} />
+                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
               </form>
             </div>
           </div>
