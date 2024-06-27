@@ -5,7 +5,7 @@ export default function Card({list,toggleFavourite,handleIsedit,removeEl,togglei
     return(
         list.map((el, index) => {
             return (
-        <div key={index} className='notebox'>
+        <div key={index} className={`notebox ${el.status}`}>
                           <div className="inner-wrap">
                           <p className="updateTime">{el.date}</p>
                           <div className="title">{el.itemTitle}</div>

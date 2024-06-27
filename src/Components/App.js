@@ -27,7 +27,8 @@ function App() {
       list={list} 
       searchItems={searchItems}
       setSearchItems={setSearchItems}
-      setShowPage={setShowPage}/>
+      setShowPage={setShowPage}
+      deletedItems={deletedItems}/>
 
       <div className="content-wrap">
         <div className="container">

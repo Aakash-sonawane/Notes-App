@@ -6,11 +6,17 @@
 .sideBar .sidebar-items{display: flex; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;}
 .sideBar .item{ width: 80%; font-size: 20px; color:#000; margin: 0; border-radius: 10px; box-shadow: 0px 0px 4px 0px rgb(66, 65, 65); transition: 0.4s all; cursor: pointer;}
 .sideBar .item:hover{ background-color: #fff; color: #333;}
-.navbar{ width: 100%; position: fixed; top: 0; left: 0; z-index: 1;}
+.navbar{ width: 100%; position: fixed; top: 0; left: 0; z-index: 2;}
 .navbar .container-fluid{display: flex; padding: 0; justify-content: space-between;}
 
 
-.board{ max-width: 1020px; width: 100%;}
+.board{position: relative; max-width: 1020px; width: 100%;}
+.board .list-options{position: absolute; top: 30px; right: 10px; background: rgb(255, 253, 253);
+  padding: 20px 20px; z-index: 1;}
+.board .options .option{font-size: 20px; margin-bottom: 10px;}
+.burger-dots{position: absolute; top: 0; right: 0; cursor: pointer;}
+.dots{width: 3px; height: 3px; background: #000; margin-bottom: 3px; border-radius: 50%;}
+.options{display: flex; flex-direction: column; align-items: flex-start;}
 .sideBar{background-color: #e9eaf0; border: 1px solid #151c42; max-width: 220px; width: 100%; height: 419px; padding-top: 20px; border-radius: 10px; }
 
 .wrapper{position: relative; overflow: hidden;}
@@ -48,10 +54,9 @@
    margin-left: 100px !important
  }
 } */
-.list-container{display: flex; margin: 0 -10px; padding:20px 0 0 20px; flex-wrap: wrap;}
-
 
 /* listLender */
+.list-container{display: flex; margin: 0 -10px; padding:20px 0 0 20px; flex-wrap: wrap;}
 .notebox{position: relative;  flex: 0 0 25%; max-width: 25%;}
 .notebox .inner-wrap{position: relative; display: flex; margin: 0 10px 20px 10px; justify-content: center; align-items: center; flex-direction: column; padding: 30px 10px; border-radius: 3px; border: 1px solid #a0a0a0; border-radius: 7px; box-shadow: 6px 6px 5px 0px #f0eaea;}
 .notebox .updateTime{font-size: 13px; margin-bottom: 7px; color: #7d7b7b;}
@@ -60,6 +65,8 @@
 .notebox .inner-wrap:hover{background: #fafafa;}
 .notebox i{ cursor: pointer;}
 
+.list-container .deleted{opacity: 0.4;}
+.list-container .no-result{width: 100%; font-size: 38px; text-align: center; padding: 30px 0; color: #615f5f;}
 .x{position: absolute; float:right; bottom: 2px; right: 0;}
 
 

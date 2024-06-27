@@ -1,32 +1,61 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 
-const Header = ({title,list,searchItems,setSearchItems,showPage,setShowPage}) => {
+const Header = ({title,list,searchItems,setSearchItems,showPage,setShowPage,deletedItems}) => {
 
   const [searchText,setSearchText]=useState('');
 
-  useEffect(()=>{
-let filterSearchItems=[];
-    if(searchText){
-      console.log(searchText)
-        filterSearchItems=list.filter((item)=>{
-        let title=item.itemTitle.toLowerCase();
-        let desc=item.item.toLowerCase();
-        console.log(title.indexOf(searchText))
-        console.log(desc.indexOf(searchText))
-        return !title.indexOf(searchText) || !desc.indexOf(searchText)
-      })
-      setShowPage('search')
-      setSearchItems([...filterSearchItems])
+  let timeOutId=useRef();
 
+  useEffect(()=>{
+    if(searchText){
+      setSearchArray(timeOutId);
     }
     else{
       setShowPage('add')
     }
 
-    console.log('filterSearchItems',filterSearchItems)
+    // console.log('filterSearchItems',filterSearchItems)
+
+
+    return ()=>{
+      clearTimeout(timeOutId.current)
+    }
 
 
   },[searchText])
+
+
+  const setSearchArray=(id)=>{
+
+    let filterSearchItems = findSearchItems(list)
+    let SearchIndeletedArr = findSearchItems(deletedItems).map(el=>{
+      el.status="deleted"
+      return el;
+    })
+    // console.log('SearchIndeletedArr',SearchIndeletedArr)
+    
+    filterSearchItems=[...filterSearchItems,...SearchIndeletedArr]
+      id.current= setTimeout(() => {
+        setShowPage('search')
+        setSearchItems([...filterSearchItems])
+      }, 300);
+
+  }
+
+  const findSearchItems=(data)=>{
+        return(
+          data.filter((item)=>{
+            let title=item.itemTitle.toLowerCase();
+            let desc=item.item.toLowerCase();
+      
+            return !title.indexOf(searchText) || !desc.indexOf(searchText)
+          })
+        )
+  }
+
+
+
+
 
 
     return (

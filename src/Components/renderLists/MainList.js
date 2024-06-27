@@ -46,13 +46,21 @@ const MainList = (props) => {
 
 {/* search item start */}
     {
-        showPage==="search" && 
+        showPage==="search" &&
+        <>
         <Card
         list={searchItems} 
         toggleFavourite={toggleFavourite} 
         handleIsedit={handleIsedit}
         removeEl={removeEl}
         toggleisEdit={toggleisEdit}/>
+
+        {  !searchItems.length &&  <div className="no-result">No Search Result Found</div>}
+        
+        </>
+
+        
+
       }
 {/* search item end */}
 
