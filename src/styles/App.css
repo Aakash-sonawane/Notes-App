@@ -13,7 +13,7 @@
 .board{position: relative; max-width: 1020px; width: 100%;}
 .board .list-options{position: absolute; top: 30px; right: 10px; background: rgb(255, 253, 253);
   padding: 20px 20px; z-index: 1;}
-.board .options .option{font-size: 20px; margin-bottom: 10px;}
+.board .options .option{font-size: 20px; margin-bottom: 10px; cursor: pointer;}
 .burger-dots{position: absolute; top: 0; right: 0; cursor: pointer;}
 .dots{width: 3px; height: 3px; background: #000; margin-bottom: 3px; border-radius: 50%;}
 .options{display: flex; flex-direction: column; align-items: flex-start;}

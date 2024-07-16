@@ -24,6 +24,7 @@ const Section=(props)=>{
     }
 
     function sortArrayByGivenCond(arr,cond,title) {
+      setIsBurger(!isBurger);
       return arr.sort((a, b) => {
           
           let titleA = a[title].toLowerCase();
