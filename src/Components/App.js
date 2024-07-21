@@ -18,7 +18,6 @@ function App() {
      localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
 
   },[list,deletedItems]);
-  console.log(showPage)
   return (
     <main>
       

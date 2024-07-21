@@ -49,7 +49,7 @@ const AddNote=({list,setList,toggle,isAddNoteFlag,isEdit,editId})=>{
             list[editId].item=note;
             list[editId].itemTitle=noteTitle;
             setList([...list]);
-          console.log(editId)
+          // console.log(editId)
           }
         }}>Save</button>}
       </div>

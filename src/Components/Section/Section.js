@@ -10,7 +10,6 @@ const Section=(props)=>{
     const [isEdit, setIsEdit]=useState(false);
     const [editId, seteditId] = useState("");
     const [isBurger,setIsBurger] = useState(false);
-   console.log(isBurger)
     const toggle=()=>{
       setIsAddNoTeFlag(!isAddNoteFlag)
     }
@@ -112,7 +111,7 @@ const Section=(props)=>{
           </div>
           {isBurger && 
           <div className="options" onClick={(e)=>{
-            console.log(e.target.className.split(" ")[1])
+            // console.log(e.target.className.split(" ")[1])
             let sortCondition=e.target.className.split(" ")[1]
             if(sortCondition==='a-z'){
               sortArrayByGivenCond(list,'asc','itemTitle')
@@ -146,7 +145,7 @@ const Section=(props)=>{
         {showPage==='add' && <div className='add-btn-plus' 
         onClick={toggle}><i className="fa-solid fa-2x fa-plus"></i></div>}
 
-       {list.length===0 && !isAddNoteFlag?<About/>:null}
+       {(list.length===0 && deletedItems.length===0) && !isAddNoteFlag?<About/>:null}
         
         {showPage==='add' &&
           (isAddNoteFlag || isEdit) && <Popup 
@@ -160,7 +159,7 @@ const Section=(props)=>{
         }
         </div>
 
-        <div className='list-container'>
+        <div className={`list-container ${showPage==="add"?"f-view":"s-view"}`}>
           
           <MainList showPage={showPage} 
           setIsAddNoTeFlag={setIsAddNoTeFlag}  

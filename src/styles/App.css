@@ -2,24 +2,27 @@
   margin: 0;
   padding: 0;
 }
-.sideBar{ text-align: center; box-shadow: 0px 0px 4px 0px rgb(197, 178, 178);}
-.sideBar .sidebar-items{display: flex; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;}
-.sideBar .item{ width: 80%; font-size: 20px; color:#000; margin: 0; border-radius: 10px; box-shadow: 0px 0px 4px 0px rgb(66, 65, 65); transition: 0.4s all; cursor: pointer;}
-.sideBar .item:hover{ background-color: #fff; color: #333;}
-.navbar{ width: 100%; position: fixed; top: 0; left: 0; z-index: 2;}
+.sidebar{position: relative; text-align: center; box-shadow: 0px 0px 4px 0px rgb(197, 178, 178);}
+.sidebar .burger-menu-icon{display: none; position: absolute; top: 0; left: 0;}
+.sidebar .sidebar-items{display: flex; flex-direction: column; justify-content: center; align-items: center;  gap: 20px;}
+.sidebar .item{ width: 80%; font-size: 20px; color:#000; margin: 0; border-radius: 10px; box-shadow: 0px 0px 4px 0px rgb(66, 65, 65); transition: 0.4s all; cursor: pointer;}
+.sidebar .item:hover{ background-color: #fff; color: #333;}
+.navbar{ width: 100%; position: fixed; top: 0; left: 0; z-index: 9;}
+
+.navbar-toggler{display: none;} /* burger menu functionality stop*/
+.navbar .navbar-collapse {display: flex;}
 .navbar .container-fluid{display: flex; padding: 0; justify-content: space-between;}
 
 
 .board{position: relative; max-width: 1020px; width: 100%;}
-.board .list-options{position: absolute; top: 30px; right: 10px; background: rgb(255, 253, 253);
-  padding: 20px 20px; z-index: 1;}
+.board .list-options{position: absolute; top: 30px; right: 0px; background: rgb(255, 253, 253); z-index: 1;}
 .board .options .option{font-size: 20px; margin-bottom: 10px; cursor: pointer;}
-.burger-dots{position: absolute; top: 0; right: 0; cursor: pointer;}
+.burger-dots{position: absolute; top: 4px; right: 4px; padding: 0 2px 0 2px; cursor: pointer;}
 .dots{width: 3px; height: 3px; background: #000; margin-bottom: 3px; border-radius: 50%;}
-.options{display: flex; flex-direction: column; align-items: flex-start;}
-.sideBar{background-color: #e9eaf0; border: 1px solid #151c42; max-width: 220px; width: 100%; height: 419px; padding-top: 20px; border-radius: 10px; }
+.options{display: flex; flex-direction: column; align-items: flex-start; padding: 20px; border: 1px solid #979797;}
+.sidebar{background-color: #e9eaf0; border: 1px solid #151c42; max-width: 220px; width: 100%; height: 419px; padding-top: 20px; border-radius: 10px; }
 
-.wrapper{position: relative; overflow: hidden;}
+.wrapper{position: relative;}
 .content-wrap{display: flex; padding: 65px 0 0 0;}
 .wrapper .container,.navbar .container{max-width: 1280px; margin: 0 auto; padding: 0 20px;}
 .inner-wrap{display: flex;}
@@ -81,16 +84,35 @@
   .navbar-collapse {padding-left: 11px;}
 .navbar .btn-outline-success{display: none;}
 .navbar-toggler{height: 40px; order: 1;}
-  .inner-wrap {flex-direction: column;}
-  .sideBar .sidebar-items {flex-direction: row; gap: 10px;}
-  .sideBar {height: auto; max-width: unset; padding: 10px;}
-  .sideBar .item {font-size: 15px;}
+  /* .inner-wrap {flex-direction: column;} */
+
+  .sidebar {height: auto; width: auto; max-width: unset; background: #fff; border: none; box-shadow: none; padding: 0;}
+  
+  .sidebar .burger-menu-icon{display: block; cursor: pointer; z-index: 7;}
+  /* .sidebar .sidebar-items {display: none;} */
+  .sidebar .hide{display: none;}
+.sidebar .sidebar-items.show{    position: absolute;
+  top: 9px;
+  left: 0;
+  background: #FFF;
+  z-index: 6;
+  height: 100vh;
+  width: 140px;
+  border-right: 1px solid #d3cece;
+  border-radius: 0;
+  justify-content: flex-start; padding-top: 30px;}
+.sidebar .sidebar-items .item{border: none; box-shadow: none; text-align: left;}
+  
+  .sidebar .item {font-size: 15px;}
   .add-btn-plus{margin: 20px auto 0 auto;}
-  .list-container{padding: 20px 0 0 0;}
+  .list-container.f-view{padding: 20px 0 0 0;}
+  .list-container.s-view{padding: 60px 0 0 0;}
 }
 @media only screen and (max-width:399px){
-  .sideBar .item {font-size: 13px;}
+  /* .navbar-toggler{display: none;} */
+  .navbar .navbar-collapse {display: block;}
+  .navbar .title{    font-size: 14px; line-height: 45px; max-height: 45px;}
+  .sidebar .item {font-size: 13px;}
   .add-btn-plus{margin: 20px auto 0 auto;}
-  .list-container{padding: 20px 0 0 0;}
   .notebox{flex: 0 0 100%; max-width: 100%;}
 }
