@@ -5,7 +5,6 @@ import SideBar from "./SideBar/SideBar"
 import '../styles/App.css';
 import Section from "./Section/Section"
 import Header from './header/Header';
-import Root from './root';
 
 function App() {
   
@@ -18,48 +17,38 @@ function App() {
      localStorage.setItem("list", JSON.stringify(list));
      localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
 
-  },[list]);
+  },[list,deletedItems]);
   console.log(showPage)
   return (
-    // <main>
+    <main>
       
-    //   <div className='wrapper'>
-    //   <Header title={"Ak-Daily-Notes"} showPage={showPage} 
-    //   list={list} 
-    //   searchItems={searchItems}
-    //   setSearchItems={setSearchItems}
-    //   setShowPage={setShowPage}
-    //   deletedItems={deletedItems}/>
-
-    //   <div className="content-wrap">
-    //     <div className="container">
-    //     <div className="inner-wrap">
-    //     <SideBar list={list} 
-    //     deletedItems={deletedItems}  
-    //     showPage={showPage} 
-    //     setShowPage={setShowPage}/>
-
-    //     <Section deletedItems={deletedItems} 
-    //     setDeletedItems={setDeletedItems} 
-    //     showPage={showPage} list={list} 
-    //     setList={setList}
-    //     searchItems={searchItems}/>
-
-    //     </div>
-    //     </div>
-    //     </div>
-    //   </div>
-    // </main>
-    <Root 
-    list={list} 
-    setList={setList}
+      <div className='wrapper'>
+      <Header title={"Ak-Daily-Notes"} showPage={showPage} 
+      list={list} 
       searchItems={searchItems}
       setSearchItems={setSearchItems}
-      showPage={showPage} 
       setShowPage={setShowPage}
-      deletedItems={deletedItems}
-      setDeletedItems={setDeletedItems} 
-      />
+      deletedItems={deletedItems}/>
+
+      <div className="content-wrap">
+        <div className="container">
+        <div className="inner-wrap">
+        <SideBar list={list} 
+        deletedItems={deletedItems}  
+        showPage={showPage} 
+        setShowPage={setShowPage}/>
+
+        <Section deletedItems={deletedItems} 
+        setDeletedItems={setDeletedItems} 
+        showPage={showPage} list={list} 
+        setList={setList}
+        searchItems={searchItems}/>
+
+        </div>
+        </div>
+        </div>
+      </div>
+    </main>
   );
 }
 

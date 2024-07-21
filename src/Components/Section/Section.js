@@ -114,19 +114,19 @@ const Section=(props)=>{
           <div className="options" onClick={(e)=>{
             console.log(e.target.className.split(" ")[1])
             let sortCondition=e.target.className.split(" ")[1]
-            if(sortCondition=='a-z'){
+            if(sortCondition==='a-z'){
               sortArrayByGivenCond(list,'asc','itemTitle')
               setList([...list])
             }
-            else if(sortCondition=='z-a'){
+            else if(sortCondition==='z-a'){
               sortArrayByGivenCond(list,'desc','itemTitle')
               setList([...list])
             }
-            else if(sortCondition=='date'){
+            else if(sortCondition==='date'){
               sortArrayByGivenCond(list,'asc','date')
               setList([...list])
             }
-            else if(sortCondition=='r-date'){
+            else if(sortCondition==='r-date'){
               sortArrayByGivenCond(list,'desc','date')
               setList([...list])
             }
